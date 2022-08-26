@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="datosArd" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=srvmiml.database.windows.net;Initial Catalog=datosArd;User ID=administrador" SettingsObjectName="HMI.Properties.Settings" SettingsPropertyName="datosArdConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.sensores" Member="sensores">
+    <Type Name="sensores">
+      <Column Name="valorVoltaje" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="valorTemperatura" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="valorDistancia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Linq.Expressions;
 using System.Threading;
+using System.Runtime.Remoting.Contexts;
 
 namespace HMI
 {
@@ -48,7 +49,7 @@ namespace HMI
         {
             serialPort1.Close();
             serialPort1.Dispose();
-
+           
             try 
             {
                 serialPort1.PortName = comboBox1.Text;
@@ -60,6 +61,7 @@ namespace HMI
                     radioButton1.Checked = true;
                     MessageBox.Show("CONECTADO CON EL ARDUINO");
                     button1.Enabled = false;
+                    timer1.Start();
                 }
             }
             catch (Exception err)
@@ -74,7 +76,20 @@ namespace HMI
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            // TODO: esta línea de código carga datos en la tabla 'datosArdDataSet.sensores' Puede moverla o quitarla según sea necesario.
+            this.sensoresTableAdapter.Fill(this.datosArdDataSet.sensores);
             radioButton1.Enabled = false;
+            
+            
+        }
+
+        private void ver()
+        {
+            datosArdEntities1 contextDB = new datosArdEntities1();
+            var valores = from values in contextDB.sensores
+                          select values;
+            dataGridView1.DataSource = valores.ToList();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -229,5 +244,36 @@ namespace HMI
         {
 
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ver();
+            datosArdEntities1 contextDB = new datosArdEntities1();
+            if(lblAnalog.Text!=null || lblDistancia.Text!=null || lblTemp.Text != null)
+            {
+                sensores dato = new sensores();
+                dato.valorVoltaje = lblAnalog.Text;
+                dato.valorDistancia = lblDistancia.Text;
+                dato.valorTemperatura = lblTemp.Text;
+                dato.Fecha = DateTime.Now.ToString();
+                contextDB.sensores.Add(dato);
+                try
+                {
+                    if (contextDB.SaveChanges() == 1)
+                    {
+                        lblError.Text = "OK";
+
+                    }
+                }
+                catch (Exception)
+                {
+                    lblError.Text = "EROR DE INSERCION";
+                }
+            }
+
+            
+        }
+
+        
     }
 }

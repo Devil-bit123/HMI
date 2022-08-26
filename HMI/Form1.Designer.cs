@@ -52,10 +52,19 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lblDistancia = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datosArdDataSet = new HMI.datosArdDataSet();
+            this.sensoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sensoresTableAdapter = new HMI.datosArdDataSetTableAdapters.sensoresTableAdapter();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosArdDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensoresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -65,6 +74,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.groupBox1.Controls.Add(this.lblError);
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
@@ -331,12 +341,53 @@
             this.label14.TabIndex = 1;
             this.label14.Text = "Distancia:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 306);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(572, 150);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // datosArdDataSet
+            // 
+            this.datosArdDataSet.DataSetName = "datosArdDataSet";
+            this.datosArdDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sensoresBindingSource
+            // 
+            this.sensoresBindingSource.DataMember = "sensores";
+            this.sensoresBindingSource.DataSource = this.datosArdDataSet;
+            // 
+            // sensoresTableAdapter
+            // 
+            this.sensoresTableAdapter.ClearBeforeFill = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(234, 16);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(41, 13);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "label2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(591, 307);
+            this.ClientSize = new System.Drawing.Size(591, 386);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -357,6 +408,9 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datosArdDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sensoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,6 +440,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblDistancia;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private datosArdDataSet datosArdDataSet;
+        private System.Windows.Forms.BindingSource sensoresBindingSource;
+        private datosArdDataSetTableAdapters.sensoresTableAdapter sensoresTableAdapter;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblError;
     }
 }
 
