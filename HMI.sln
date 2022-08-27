@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMI", "HMI\HMI.csproj", "{30B45011-C1EF-4C50-89C6-F54A47AAA585}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WA_Interfaces", "WA_Interfaces\WA_Interfaces.csproj", "{3F8C1D9A-194B-4452-9CFF-0CDE7B7AADFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{30B45011-C1EF-4C50-89C6-F54A47AAA585}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30B45011-C1EF-4C50-89C6-F54A47AAA585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30B45011-C1EF-4C50-89C6-F54A47AAA585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F8C1D9A-194B-4452-9CFF-0CDE7B7AADFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F8C1D9A-194B-4452-9CFF-0CDE7B7AADFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F8C1D9A-194B-4452-9CFF-0CDE7B7AADFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F8C1D9A-194B-4452-9CFF-0CDE7B7AADFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
