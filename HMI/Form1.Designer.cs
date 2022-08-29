@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -57,7 +58,11 @@
             this.sensoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sensoresTableAdapter = new HMI.datosArdDataSetTableAdapters.sensoresTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblError = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorVoltajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorTemperaturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDistanciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -90,6 +95,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conf.";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(234, 16);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(41, 13);
+            this.lblError.TabIndex = 6;
+            this.lblError.Text = "label2";
             // 
             // radioButton1
             // 
@@ -346,7 +360,15 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.valorVoltajeDataGridViewTextBoxColumn,
+            this.valorTemperaturaDataGridViewTextBoxColumn,
+            this.valorDistanciaDataGridViewTextBoxColumn,
+            this.fechaDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.sensoresBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(14, 306);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -372,14 +394,40 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lblError
+            // idDataGridViewTextBoxColumn
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(234, 16);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(41, 13);
-            this.lblError.TabIndex = 6;
-            this.lblError.Text = "label2";
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorVoltajeDataGridViewTextBoxColumn
+            // 
+            this.valorVoltajeDataGridViewTextBoxColumn.DataPropertyName = "valorVoltaje";
+            this.valorVoltajeDataGridViewTextBoxColumn.HeaderText = "valorVoltaje";
+            this.valorVoltajeDataGridViewTextBoxColumn.Name = "valorVoltajeDataGridViewTextBoxColumn";
+            this.valorVoltajeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorTemperaturaDataGridViewTextBoxColumn
+            // 
+            this.valorTemperaturaDataGridViewTextBoxColumn.DataPropertyName = "valorTemperatura";
+            this.valorTemperaturaDataGridViewTextBoxColumn.HeaderText = "valorTemperatura";
+            this.valorTemperaturaDataGridViewTextBoxColumn.Name = "valorTemperaturaDataGridViewTextBoxColumn";
+            this.valorTemperaturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valorDistanciaDataGridViewTextBoxColumn
+            // 
+            this.valorDistanciaDataGridViewTextBoxColumn.DataPropertyName = "valorDistancia";
+            this.valorDistanciaDataGridViewTextBoxColumn.HeaderText = "valorDistancia";
+            this.valorDistanciaDataGridViewTextBoxColumn.Name = "valorDistanciaDataGridViewTextBoxColumn";
+            this.valorDistanciaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDataGridViewTextBoxColumn
+            // 
+            this.fechaDataGridViewTextBoxColumn.DataPropertyName = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.HeaderText = "Fecha";
+            this.fechaDataGridViewTextBoxColumn.Name = "fechaDataGridViewTextBoxColumn";
+            this.fechaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form1
             // 
@@ -446,6 +494,11 @@
         private datosArdDataSetTableAdapters.sensoresTableAdapter sensoresTableAdapter;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorVoltajeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorTemperaturaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDistanciaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDataGridViewTextBoxColumn;
     }
 }
 

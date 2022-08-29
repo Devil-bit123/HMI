@@ -9,8 +9,9 @@
     <StackLayout Padding="10" Margin="12">
         <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
 
-       
-        <CollectionView x:Name="collection" BackgroundColor="Aquamarine">
+        <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
+
+        <CollectionView x:Name="collection" BackgroundColor="Aquamarine" ItemsUpdatingScrollMode="KeepLastItemInView">
         <CollectionView.ItemsLayout>
             <GridItemsLayout Orientation="Vertical" />
         </CollectionView.ItemsLayout>
@@ -109,6 +110,6 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
- 
+        </RefreshView>
     </StackLayout>
 </ContentPage>

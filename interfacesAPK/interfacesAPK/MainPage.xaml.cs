@@ -29,5 +29,14 @@ namespace interfacesAPK
             collection.ItemsSource= new ObservableCollection<userModel>(lista);
             base.OnAppearing();
         }
+
+        private async void RefreshView_Refreshing(object sender, EventArgs e)
+        {
+            string contenido = await cliente.GetStringAsync(URL);
+            IEnumerable<userModel> lista = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
+            collection.ItemsSource = new ObservableCollection<userModel>(lista);
+            refreshView.IsRefreshing = false;
+
+        }
     }
 }
