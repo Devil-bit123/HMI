@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="interfacesAPK.MainPage">
+
+
+
+
+    <StackLayout Padding="10" Margin="12">
+        <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+
+       
+        <CollectionView x:Name="collection" BackgroundColor="Aquamarine">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" />
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+
+                <Grid Padding="3" RowSpacing="0">
+          
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+
+                        <Label Grid.Column="1"
+                                       VerticalOptions="Center"
+                                       Text="Id"
+                                       FontAttributes="Bold" TextColor="Black"/>
+
+
+                        <Label Text="{Binding Id}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       FontAttributes="Italic" TextColor="Black" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1">
+
+                        <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       Text="Voltaje"
+                                       FontAttributes="Bold" TextColor="Black"/>
+
+
+                        <Label Text="{Binding ValorVoltaje}"
+                                       Grid.Row="1"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       FontAttributes="Italic" TextColor="Black" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="2">
+
+                        <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       Text="Temperatura"
+                                       FontAttributes="Bold" TextColor="Black"/>
+
+
+                        <Label Text="{Binding ValorTemperatura}"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       FontAttributes="Italic" TextColor="Black" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Column="3">
+
+                        <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       Text="Distancia"
+                                       FontAttributes="Bold" TextColor="Black"/>
+
+
+                        <Label Text="{Binding ValorDistancia}"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       FontAttributes="Italic" TextColor="Black" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="4">
+
+                        <Label Grid.Column="2"
+                                       VerticalOptions="Center"
+                                       Text="Fecha"
+                                       FontAttributes="Bold" TextColor="Black"/>
+
+
+                        <Label Text="{Binding Fecha}"
+                                       Grid.Row="2"
+                                       Grid.Column="1"
+                                       VerticalOptions="Start"
+                                       FontAttributes="Italic" TextColor="Black" />
+                    </StackLayout>
+
+
+                </Grid>
+
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+ 
+    </StackLayout>
+</ContentPage>
