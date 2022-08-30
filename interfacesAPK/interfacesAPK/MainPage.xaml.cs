@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Essentials;
+using Xamarin.Forms.PlatformConfiguration;
 
 namespace interfacesAPK
 {
@@ -24,19 +26,36 @@ namespace interfacesAPK
 
         protected override async void OnAppearing()
         {
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+               await DisplayAlert("ERROR!","No tiene acceso a  internet porfavor acceda con WIFI o datos moviles","OK");
+                System.Environment.Exit(0);
+            }
+            else { 
             string contenido= await cliente.GetStringAsync(URL);
             IEnumerable<userModel> lista  = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
             collection.ItemsSource= new ObservableCollection<userModel>(lista);
             base.OnAppearing();
+            }
         }
 
         private async void RefreshView_Refreshing(object sender, EventArgs e)
         {
-            string contenido = await cliente.GetStringAsync(URL);
-            IEnumerable<userModel> lista = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
-            collection.ItemsSource = new ObservableCollection<userModel>(lista);
-            refreshView.IsRefreshing = false;
 
+            if (Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                await DisplayAlert("ERROR!", "No tiene acceso a  internet porfavor acceda con WIFI o datos moviles", "OK");
+               
+
+            }
+            else {
+                string contenido = await cliente.GetStringAsync(URL);
+                IEnumerable<userModel> lista = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
+                collection.ItemsSource = new ObservableCollection<userModel>(lista);
+                refreshView.IsRefreshing = false;
+            }
         }
+            
+        
     }
 }
