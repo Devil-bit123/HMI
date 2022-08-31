@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:interfacesAPK.Models" x:DataType="models:userModel"
              x:Class="interfacesAPK.MainPage">
 
 
@@ -8,17 +8,21 @@
 
     <StackLayout Padding="10" Margin="12">
         <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+        <Label x:Name="vlT" TextColor="Black"/>
 
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
         <CollectionView x:Name="collection" BackgroundColor="Aquamarine" ItemsUpdatingScrollMode="KeepLastItemInView">
-        <CollectionView.ItemsLayout>
+        
+            <CollectionView.ItemsLayout>                
             <GridItemsLayout Orientation="Vertical" />
         </CollectionView.ItemsLayout>
 
         <CollectionView.ItemTemplate>
-            <DataTemplate>
+            <DataTemplate>                
 
+                
+                
                 <Grid Padding="3" RowSpacing="0">
           
                         <Grid.ColumnDefinitions>
@@ -28,10 +32,11 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                           
+                            <StackLayout Grid.Column="0">
+                              
 
-                    <StackLayout Grid.Column="0">
-
-                        <Label Grid.Column="1"
+                                <Label Grid.Column="1"
                                        VerticalOptions="Center"
                                        Text="Id"
                                        FontAttributes="Bold" TextColor="Black"/>
@@ -52,7 +57,7 @@
                                        FontAttributes="Bold" TextColor="Black"/>
 
 
-                        <Label Text="{Binding ValorVoltaje}"
+                        <Label x:Name="IdT" Text="{Binding ValorVoltaje}"
                                        Grid.Row="1"
                                        Grid.Column="1"
                                        VerticalOptions="Start"
@@ -67,7 +72,7 @@
                                        FontAttributes="Bold" TextColor="Black"/>
 
 
-                        <Label Text="{Binding ValorTemperatura}"
+                        <Label x:Name="labelT"  Text="{Binding ValorTemperatura}"
                                        Grid.Row="2"
                                        Grid.Column="1"
                                        VerticalOptions="Start"

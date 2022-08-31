@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Essentials;
 using Xamarin.Forms.PlatformConfiguration;
+using Newtonsoft.Json.Linq;
 
 namespace interfacesAPK
 {
@@ -34,8 +35,8 @@ namespace interfacesAPK
             else { 
             string contenido= await cliente.GetStringAsync(URL);
             IEnumerable<userModel> lista  = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
-            collection.ItemsSource= new ObservableCollection<userModel>(lista);
-            base.OnAppearing();
+                collection.ItemsSource= new ObservableCollection<userModel>(lista);
+                base.OnAppearing();
             }
         }
 
@@ -52,10 +53,16 @@ namespace interfacesAPK
                 string contenido = await cliente.GetStringAsync(URL);
                 IEnumerable<userModel> lista = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
                 collection.ItemsSource = new ObservableCollection<userModel>(lista);
+                foreach(var l in lista)
+                {
+                   vlT.Text = l.ValorTemperatura.ToString();
+                }
                 refreshView.IsRefreshing = false;
+
             }
         }
             
         
     }
 }
+
