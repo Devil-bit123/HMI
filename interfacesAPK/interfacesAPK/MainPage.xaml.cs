@@ -12,17 +12,19 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using Xamarin.Forms.PlatformConfiguration;
 using Newtonsoft.Json.Linq;
+using Plugin.LocalNotification;
 
 namespace interfacesAPK
 {
     public partial class MainPage : ContentPage
     {
         private string URL = "https://interfaceselec.azurewebsites.net/api/sensors";
-
+        int temp;
         HttpClient cliente = new HttpClient();
         public MainPage()
         {
             InitializeComponent();
+            notificacion();
         }
 
         protected override async void OnAppearing()
@@ -36,6 +38,26 @@ namespace interfacesAPK
             string contenido= await cliente.GetStringAsync(URL);
             IEnumerable<userModel> lista  = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
                 collection.ItemsSource= new ObservableCollection<userModel>(lista);
+                
+                foreach (var l in lista)
+                {
+                    vlT.Text = l.ValorTemperatura.ToString();
+                   
+                    try { 
+                    
+                    temp  = Convert.ToInt32(vlT.Text);
+                    }
+                    catch
+                    {
+
+                    }
+                   
+                }
+
+                if (temp > 25)
+                {
+                    notificacion();
+                }
                 base.OnAppearing();
             }
         }
@@ -53,16 +75,45 @@ namespace interfacesAPK
                 string contenido = await cliente.GetStringAsync(URL);
                 IEnumerable<userModel> lista = JsonConvert.DeserializeObject<IEnumerable<userModel>>(contenido);
                 collection.ItemsSource = new ObservableCollection<userModel>(lista);
-                foreach(var l in lista)
+              
+                foreach (var l in lista)
                 {
                    vlT.Text = l.ValorTemperatura.ToString();
+                    
+                    try
+                    {
+
+                        temp = Convert.ToInt32(vlT.Text);
+                    }
+                    catch
+                    {
+
+                    }
                 }
                 refreshView.IsRefreshing = false;
+                
+                if (temp > 25)
+                {
+                    notificacion();
+                }
 
             }
         }
             
-        
+       private void notificacion()
+        {
+            var notification = new NotificationRequest
+            {
+                BadgeNumber = 1,
+                Description = "La temperatura a exedido el limite permitido! " + vlT.Text + "grados",
+                Title = "ALERTA!",
+                ReturningData = "La temperatura a exedido el limite permitido! " + vlT.Text + "grados",
+                NotificationId = 1337,
+                NotifyTime = DateTime.Now,
+
+            };
+            NotificationCenter.Current.Show(notification);
+        }
     }
 }
 

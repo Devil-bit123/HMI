@@ -8,8 +8,10 @@
 
     <StackLayout Padding="10" Margin="12">
         <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-        <Label x:Name="vlT" TextColor="Black"/>
-
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="lblT" Text="Temperatura: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlT" TextColor="Black" FontSize="18"/>
+        </StackLayout>
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
         <CollectionView x:Name="collection" BackgroundColor="Aquamarine" ItemsUpdatingScrollMode="KeepLastItemInView">
