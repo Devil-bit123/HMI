@@ -75,7 +75,7 @@ namespace interfacesAPK
                         {
                             Label="Distancia",
                             ValueLabel=l.ValorDistancia.ToString(),
-                            Color=SKColor.Parse("#b455b6")
+                            Color=SKColor.Parse("#b455b")
                         }
 
                     };
