@@ -13,18 +13,23 @@ using Xamarin.Essentials;
 using Xamarin.Forms.PlatformConfiguration;
 using Newtonsoft.Json.Linq;
 using Plugin.LocalNotification;
+using Plugin.LocalNotifications;
 
 namespace interfacesAPK
 {
     public partial class MainPage : ContentPage
     {
         private string URL = "https://interfaceselec.azurewebsites.net/api/sensors";
-        int temp;
+        string temp;
+        int tempe;
+        private static readonly int NOTIFICATION_ID = 1000;
+        private static readonly string CHANNEL_ID="location_notification";
+        
         HttpClient cliente = new HttpClient();
         public MainPage()
         {
             InitializeComponent();
-            notificacion();
+           
         }
 
         protected override async void OnAppearing()
@@ -42,22 +47,16 @@ namespace interfacesAPK
                 foreach (var l in lista)
                 {
                     vlT.Text = l.ValorTemperatura.ToString();
-                   
-                    try { 
-                    
-                    temp  = Convert.ToInt32(vlT.Text);
-                    }
-                    catch
+                    double aux = Convert.ToDouble(vlT.Text);
+                    if (aux > 25)
                     {
-
+                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados", 0, DateTime.Now);
                     }
-                   
+
+
                 }
 
-                if (temp > 25)
-                {
-                    notificacion();
-                }
+                
                 base.OnAppearing();
             }
         }
@@ -79,40 +78,25 @@ namespace interfacesAPK
                 foreach (var l in lista)
                 {
                    vlT.Text = l.ValorTemperatura.ToString();
-                    
-                    try
+                    double aux = Convert.ToDouble(vlT.Text);
+                    if (aux > 25)
                     {
-
-                        temp = Convert.ToInt32(vlT.Text);
-                    }
-                    catch
-                    {
-
+                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados", 0, DateTime.Now.AddSeconds(1));
                     }
                 }
                 refreshView.IsRefreshing = false;
                 
-                if (temp > 25)
-                {
-                    notificacion();
-                }
+                
 
             }
         }
-            
-       private void notificacion()
-        {
-            var notification = new NotificationRequest
-            {
-                BadgeNumber = 1,
-                Description = "La temperatura a exedido el limite permitido! " + vlT.Text + "grados",
-                Title = "ALERTA!",
-                ReturningData = "La temperatura a exedido el limite permitido! " + vlT.Text + "grados",
-                NotificationId = 1337,
-                NotifyTime = DateTime.Now,
 
-            };
-            NotificationCenter.Current.Show(notification);
+
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido", 0, DateTime.Now.AddSeconds(1));
+
         }
     }
 }

@@ -11,6 +11,7 @@
         <StackLayout Orientation="Horizontal">
             <Label x:Name="lblT" Text="Temperatura: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Label x:Name="vlT" TextColor="Black" FontSize="18"/>
+            <Button Text="GO" Clicked="Button_Clicked" />
         </StackLayout>
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
