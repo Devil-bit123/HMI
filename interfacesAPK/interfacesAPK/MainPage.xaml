@@ -9,10 +9,22 @@
     <StackLayout Padding="10" Margin="12">
         <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
         <StackLayout Orientation="Horizontal">
+            <Label x:Name="lblV" Text="V. analogo voltaje:" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlV" TextColor="Black" FontSize="18"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
             <Label x:Name="lblT" Text="Temperatura: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Label x:Name="vlT" TextColor="Black" FontSize="18"/>
-            <Button Text="GO" Clicked="Button_Clicked" />
         </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="lblD" Text="Distancia: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlD" TextColor="Black" FontSize="18"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="lblF" Text="Fecha: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlF" TextColor="Black" FontSize="18"/>
+        </StackLayout>
+
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
         <CollectionView x:Name="collection" BackgroundColor="Aquamarine" ItemsUpdatingScrollMode="KeepLastItemInView">

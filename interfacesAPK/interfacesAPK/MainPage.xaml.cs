@@ -46,11 +46,14 @@ namespace interfacesAPK
                 
                 foreach (var l in lista)
                 {
+                    vlV.Text = l.ValorVoltaje.ToString();
                     vlT.Text = l.ValorTemperatura.ToString();
+                    vlD.Text = l.ValorDistancia.ToString();
+                    vlF.Text = l.Fecha.ToString();
                     double aux = Convert.ToDouble(vlT.Text);
                     if (aux > 25)
                     {
-                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados", 0, DateTime.Now);
+                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+ " Grados, encendiendo refirgeracion.", 0, DateTime.Now);
                     }
 
 
@@ -77,11 +80,14 @@ namespace interfacesAPK
               
                 foreach (var l in lista)
                 {
+                    vlV.Text = l.ValorVoltaje.ToString();
                    vlT.Text = l.ValorTemperatura.ToString();
+                    vlD.Text=l.ValorDistancia.ToString();
+                    vlF.Text = l.Fecha.ToString();
                     double aux = Convert.ToDouble(vlT.Text);
                     if (aux > 25)
                     {
-                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados", 0, DateTime.Now.AddSeconds(1));
+                        CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados, encendiendo refirgeracion.", 0, DateTime.Now.AddSeconds(1));
                     }
                 }
                 refreshView.IsRefreshing = false;
@@ -95,7 +101,7 @@ namespace interfacesAPK
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido", 0, DateTime.Now.AddSeconds(1));
+            
 
         }
     }
