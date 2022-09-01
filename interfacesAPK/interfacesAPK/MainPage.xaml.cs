@@ -14,21 +14,22 @@ using Xamarin.Forms.PlatformConfiguration;
 using Newtonsoft.Json.Linq;
 using Plugin.LocalNotification;
 using Plugin.LocalNotifications;
+using Microcharts;
+using SkiaSharp;
 
 namespace interfacesAPK
 {
     public partial class MainPage : ContentPage
     {
-        private string URL = "https://interfaceselec.azurewebsites.net/api/sensors";
-        string temp;
-        int tempe;
-        private static readonly int NOTIFICATION_ID = 1000;
-        private static readonly string CHANNEL_ID="location_notification";
+        private string URL = "https://interfaceselec.azurewebsites.net/api/sensors";       
+      
+        
         
         HttpClient cliente = new HttpClient();
         public MainPage()
         {
             InitializeComponent();
+            
            
         }
 
@@ -55,8 +56,30 @@ namespace interfacesAPK
                     {
                         CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+ " Grados, encendiendo refirgeracion.", 0, DateTime.Now);
                     }
+                    ChartEntry[] entries = new ChartEntry[] {
 
+                        new ChartEntry(212)
+                        {
+                            Label="Voltaje Analogo",
+                            ValueLabel=l.ValorVoltaje.ToString(),
+                            Color=SKColor.Parse("#2c3e50")
+                        },
 
+                        new ChartEntry(248)
+                        {
+                            Label="Temperatura",
+                            ValueLabel=l.ValorTemperatura.ToString(),
+                            Color=SKColor.Parse("#77d065")
+                        },
+                        new ChartEntry(212)
+                        {
+                            Label="Distancia",
+                            ValueLabel=l.ValorDistancia.ToString(),
+                            Color=SKColor.Parse("#b455b6")
+                        }
+
+                    };
+                    chartViewBar.Chart = new BarChart { Entries = entries };
                 }
 
                 
@@ -89,6 +112,9 @@ namespace interfacesAPK
                     {
                         CrossLocalNotifications.Current.Show("Alerta!", "La tempertatura se a excedido "+aux+" Grados, encendiendo refirgeracion.", 0, DateTime.Now.AddSeconds(1));
                     }
+
+
+
                 }
                 refreshView.IsRefreshing = false;
                 

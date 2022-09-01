@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:interfacesAPK.Models" x:DataType="models:userModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:microcharts="clr-namespace:Microcharts;assembly=Microcharts"
+             xmlns:models="clr-namespace:interfacesAPK.Models" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" x:DataType="models:userModel"
              x:Class="interfacesAPK.MainPage">
 
 
@@ -25,6 +27,10 @@
             <Label x:Name="vlF" TextColor="Black" FontSize="18"/>
         </StackLayout>
 
+        <StackLayout>
+            <forms:ChartView x:Name="chartViewBar" HeightRequest="300" />
+        </StackLayout>
+        
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
         <CollectionView x:Name="collection" BackgroundColor="Aquamarine" ItemsUpdatingScrollMode="KeepLastItemInView">
