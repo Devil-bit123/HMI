@@ -270,6 +270,7 @@ namespace HMI
                     lblError.Text = "EROR DE INSERCION";
                 }
             }
+           
 
             
         }

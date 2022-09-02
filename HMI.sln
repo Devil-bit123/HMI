@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WA_Interfaces", "WA_Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "interfacesAPK.Android", "interfacesAPK\interfacesAPK.Android\interfacesAPK.Android.csproj", "{5534AA91-CFEF-48AF-9C7C-4AFD98840A7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "interfacesAPK", "interfacesAPK\interfacesAPK\interfacesAPK.csproj", "{90EEED5E-9106-464A-AED0-62820584351F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "interfacesAPK", "interfacesAPK\interfacesAPK\interfacesAPK.csproj", "{90EEED5E-9106-464A-AED0-62820584351F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IMAGENES", "IMAGENES", "{55CD3ED8-C27A-4919-BE13-350D53160483}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive - Instituto Cordillera\5A\Interfaces Electronicas\U3\HMI-APK-WEBSERVICE\interfaz.jpg = ..\..\..\OneDrive - Instituto Cordillera\5A\Interfaces Electronicas\U3\HMI-APK-WEBSERVICE\interfaz.jpg
+		..\..\..\OneDrive - Instituto Cordillera\5A\Interfaces Electronicas\U3\HMI-APK-WEBSERVICE\notificaciones.jpg = ..\..\..\OneDrive - Instituto Cordillera\5A\Interfaces Electronicas\U3\HMI-APK-WEBSERVICE\notificaciones.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

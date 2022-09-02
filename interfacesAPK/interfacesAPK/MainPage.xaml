@@ -6,30 +6,51 @@
              x:Class="interfacesAPK.MainPage">
 
 
+    <ScrollView BackgroundColor="#757575">
+
+        <StackLayout Padding="10" Margin="12" BackgroundColor="#a4a4a4">
+            <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="White" FontSize="18" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
 
 
-    <StackLayout Padding="10" Margin="12">
-        <Label Text="INTEFACES ELECTRONICAS MIML-SFG" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="lblV" Text="V. analogo voltaje:" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-            <Label x:Name="vlV" TextColor="Black" FontSize="18"/>
+            <StackLayout BackgroundColor="#494949" Margin="2" Padding="10">
+            
+            <StackLayout Orientation="Horizontal" >
+                <Label x:Name="lblV" Text="V. analogo voltaje:" TextColor="White" FontSize="18" FontAttributes="Bold"/>
+                <Label x:Name="vlV" TextColor="White" FontSize="18"/>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" >
+            <Label x:Name="lblT" Text="Temperatura: " TextColor="White" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlT" TextColor="White" FontSize="18"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="lblT" Text="Temperatura: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-            <Label x:Name="vlT" TextColor="Black" FontSize="18"/>
+            <StackLayout Orientation="Horizontal" >
+            <Label x:Name="lblD" Text="Distancia: " TextColor="White" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlD" TextColor="White" FontSize="18"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="lblD" Text="Distancia: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-            <Label x:Name="vlD" TextColor="Black" FontSize="18"/>
+            <StackLayout Orientation="Horizontal">
+            <Label x:Name="lblF" Text="Fecha: " TextColor="White" FontSize="18" FontAttributes="Bold"/>
+            <Label x:Name="vlF" TextColor="White" FontSize="18"/>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="lblF" Text="Fecha: " TextColor="Black" FontSize="18" FontAttributes="Bold"/>
-            <Label x:Name="vlF" TextColor="Black" FontSize="18"/>
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="EndAndExpand">
+             <Button Text="Refresh" Clicked="Button_Clicked" CornerRadius="20" HeightRequest="50"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Grafico Voltaje" FontAttributes="Bold" FontSize="16"/>
+                <forms:ChartView x:Name="chartViewBar1" HeightRequest="300"/>
         </StackLayout>
 
         <StackLayout>
-            <forms:ChartView x:Name="chartViewBar" HeightRequest="300" />
+                <Label Text="Grafico Temperatura" FontAttributes="Bold" FontSize="16"/>
+                <forms:ChartView x:Name="chartViewBar2" HeightRequest="300" />
         </StackLayout>
+
+        <StackLayout>
+                <Label Text="Grafico Distancia" FontAttributes="Bold" FontSize="16"/>
+                <forms:ChartView x:Name="chartViewBar3" HeightRequest="300" />
+        </StackLayout>        
         
         <RefreshView x:Name="refreshView" RefreshColor="Blue" Refreshing="RefreshView_Refreshing" >
 
@@ -138,4 +159,5 @@
     </CollectionView>
         </RefreshView>
     </StackLayout>
+    </ScrollView>
 </ContentPage>
